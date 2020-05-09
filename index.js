@@ -6,7 +6,8 @@ class Formatter {
   }
   
   static sanitize(string) {
-    return string.replace(/[^A-Za-z0-9-']+/g, '');
+    const bad = /[#@!$*^({]/g
+    return sentence.replace(bad, '')
   }
   
   static titleize(string) {
