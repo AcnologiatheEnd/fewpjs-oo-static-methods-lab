@@ -10,8 +10,20 @@ class Formatter {
   }
   
   static titleize(string) {
-    return string.split(' ').map(function(val){ 
-    if (val === )  
-    return val.charAt(0).toUpperCase() + val.substr(1).toLowerCase();
-  }).join(' ');
+    const avoid = ['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from']
+    let newString = []
+    let array = string.split(" ")
+    for (let i = 0; i < array.length; i++) {
+      if (i == 0) {
+        newString.push(this.capitalize(array[i]))
+      } else {
+        if (avoid.includes(array[i])) {
+          newString.push(array[i])
+        } else {
+          newString.push(this.capitalize(array[i]))
+        }
+      }
+    }
+    return newString.join(' ')
+  }
 }
